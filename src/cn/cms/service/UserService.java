@@ -2,6 +2,7 @@ package cn.cms.service;
 
 
 import cn.cms.po.CmsStudent;
+import cn.cms.po.CmsTeacher;
 import cn.cms.po.Page;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface UserService {
     public void update(CmsStudent record);
 
     public long count();
+
+    public CmsTeacher getTeacherByEmployeenum(int employeenum);
 }

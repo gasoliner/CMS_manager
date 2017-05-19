@@ -1,6 +1,7 @@
 package cn.cms.servlet;
 
 import cn.cms.po.CmsStudent;
+import cn.cms.po.CmsTeacher;
 import cn.cms.po.DataGrid;
 import cn.cms.po.Page;
 import cn.cms.service.UserService;
@@ -33,10 +34,33 @@ public class UserServlet extends HttpServlet {
             resp.getWriter().print(list(req));
         }else if (requestName.equals("delete")){
             resp.getWriter().print(delete(req));
-        }else {
+        }else if (requestName.equals("update")){
             resp.getWriter().print(update(req));
+        }else if (requestName.equals("signin")){
+            resp.getWriter().print(signin(req));
+        }else if (requestName.equals("signout")){
+            resp.getWriter().print(signout(req));
         }
     }
+
+    private String signout(HttpServletRequest req) {
+        req.getSession().invalidate();
+        return null;
+    }
+
+    private String signin(HttpServletRequest req) throws IOException {
+        int employeenum = Integer.parseInt(req.getParameter("employeenum"));
+        String password = req.getParameter("password");
+        CmsTeacher teacher = userService.getTeacherByEmployeenum(employeenum);
+        if (teacher != null && teacher.getPassword().equals(password)){
+                req.getSession().setAttribute("id",teacher.getTid());
+                req.getSession().setAttribute("user",teacher.getUsername());
+                return "/UI/index";
+        }else {
+                return "/UI/sign";
+        }
+    }
+
 
     private String delete(HttpServletRequest req) {
         userService.delete(Integer.parseInt(req.getParameter("sid")));

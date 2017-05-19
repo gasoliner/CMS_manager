@@ -30,9 +30,6 @@
         <div class="menu-last">
             <a href="#" class="easyui-linkbutton" onclick="addTab('成绩管理','UI/achievementManage')">成绩管理</a>
         </div>
-        <div class="menu-last">
-            <a href="#" class="easyui-linkbutton" onclick="addTab('成绩录入','UI/achievementAdd')">成绩录入</a>
-        </div>
     </div>
     <div title="人员管理" iconCls="icon-man" style="overflow: auto;padding: 10px;">
         <div class="menu-last">

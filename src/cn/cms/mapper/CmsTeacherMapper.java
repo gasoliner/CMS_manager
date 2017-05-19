@@ -28,4 +28,6 @@ public interface CmsTeacherMapper {
     int updateByPrimaryKeySelective(CmsTeacher record);
 
     int updateByPrimaryKey(CmsTeacher record);
+
+    CmsTeacher selectByEmployeenum(int employeenum);
 }

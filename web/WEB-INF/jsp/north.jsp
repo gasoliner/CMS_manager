@@ -12,10 +12,10 @@
 </head>
 <body>
 <div style="text-align: center;font-family: 微软雅黑;font-size: 25px;" >班级管理系统
-    <c:if test="${globleUser != null}">
-        <span>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎您，${globleUser.username}&nbsp;&nbsp;
-            <a class="easyui-linkbutton" iconCls="icon-ok" style="width: 100%;height: 32px;" onclick="logout()">退出</a>
+    <c:if test="${user != null}">
+        <span style="color: #6bff1f;display:block; width: 300px; float:right; text-align:right;font-family: 微软雅黑;font-size: 16px;">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当前用户：&nbsp;&nbsp;&nbsp;&nbsp;${user}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a style="text-decoration: none;color: #6bff1f" href="#" onclick="logout()">登出</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </span>
     </c:if>
 </div>

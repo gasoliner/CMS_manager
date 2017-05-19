@@ -48,13 +48,10 @@
             </a>
         </div>
         <div>
-            <input id="tid" type="hidden" value="1"/>
+            <input id="tid" type="hidden" value="${id}"/>
         </div>
     </div>
 </div>
-
-
-
 </body>
 </html>
 

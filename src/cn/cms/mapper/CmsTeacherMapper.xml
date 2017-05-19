@@ -255,4 +255,9 @@
       classs = #{classs,jdbcType=VARCHAR}
     where tid = #{tid,jdbcType=INTEGER}
   </update>
+
+  <select id="selectByEmployeenum" parameterType="int" resultType="cmsTeacher">
+    SELECT * FROM cms_teacher
+    WHERE employeenum = #{employeenum}
+  </select>
 </mapper>

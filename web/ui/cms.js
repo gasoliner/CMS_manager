@@ -237,3 +237,16 @@ function saveAchievement() {
         }
     })
 }
+function login() {
+    $("#fm").form("submit",{
+        url:"/user/signin",
+        success:function (res) {
+            window.location.href = res;
+        }
+    })
+}
+function logout() {
+    $.get("/user/signout",null,function (res) {
+        window.location.href = "/UI/sign";
+    })
+}

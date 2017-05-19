@@ -1,8 +1,10 @@
 package cn.cms.service.impl;
 
 import cn.cms.mapper.CmsStudentMapper;
+import cn.cms.mapper.CmsTeacherMapper;
 import cn.cms.po.CmsStudent;
 import cn.cms.po.CmsStudentExample;
+import cn.cms.po.CmsTeacher;
 import cn.cms.po.Page;
 import cn.cms.service.UserService;
 import cn.cms.util.PageUtil;
@@ -58,5 +60,13 @@ public class UserServiceImpl implements UserService {
         long count = cmsStudentMapper.countByExample(new CmsStudentExample());
         sqlSession.close();
         return count;
+    }
+
+    @Override
+    public CmsTeacher getTeacherByEmployeenum(int employeenum) {
+        SqlSession sqlSession = PageUtil.openSqlSession();
+        CmsTeacherMapper cmsTeacherMapper = sqlSession.getMapper(CmsTeacherMapper.class);
+        CmsTeacher cmsTeacher = cmsTeacherMapper.selectByEmployeenum(employeenum);
+        return cmsTeacher;
     }
 }

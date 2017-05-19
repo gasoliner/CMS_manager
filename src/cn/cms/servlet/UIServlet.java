@@ -18,7 +18,15 @@ public class UIServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String url = req.getRequestURL().toString();
         String ui = PageUtil.getRequestName(url);
-        req.getRequestDispatcher("/WEB-INF/jsp/"+ui+".jsp").forward(req,resp);
+        if (ui.equals("sign")){
+            req.getRequestDispatcher("/WEB-INF/jsp/"+ui+".jsp").forward(req,resp);
+        }else {
+            if (req.getSession().getAttribute("user") != null){
+                req.getRequestDispatcher("/WEB-INF/jsp/"+ui+".jsp").forward(req,resp);
+            }else {
+                resp.sendRedirect("/UI/sign");
+            }
+        }
     }
 
     @Override
