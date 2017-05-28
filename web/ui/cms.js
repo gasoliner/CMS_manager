@@ -93,13 +93,13 @@ function saveClasssInfo() {
 }
 function newClasssNotice() {
     $("#fm").form("clear");
-    $("#fileDialog").dialog("open").dialog("setTitle","新建");
+    $("#noticeDialog").dialog("open").dialog("setTitle","新建");
     url = "/classsNotice/add";
 }
 function editClasssNotice() {
     var row = $("#dg").datagrid("getSelected");
     if (row){
-        $("#fileDialog").dialog("open").dialog("setTitle","编辑");
+        $("#noticeDialog").dialog("open").dialog("setTitle","编辑");
         $("#fm").form("load",row);
         url = "/classsNotice/update?cnid="+row.cnid;
     }
@@ -113,7 +113,7 @@ function destroyClasssNotice() {
                     url:"/classsNotice/delete?cnid="+row.cnid,
                     success: function (res) {
                         alert(res);
-                        $("#fileDialog").dialog("close");
+                        $("#noticeDialog").dialog("close");
                         $("#dg").datagrid("reload")
                     }
                 })
@@ -126,7 +126,7 @@ function saveClasssNotice() {
         url:url,
         success: function (res) {
             alert(res);
-            $("#fileDialog").dialog("close");
+            $("#noticeDialog").dialog("close");
             $('#dg').datagrid("reload");
         }
     })

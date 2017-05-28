@@ -28,6 +28,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void insert(CmsStudent record) {
+        record.setPassword("000000");
         SqlSession sqlSession = PageUtil.openSqlSession();
         CmsStudentMapper cmsStudentMapper = sqlSession.getMapper(CmsStudentMapper.class);
         cmsStudentMapper.insertSelective(record);
